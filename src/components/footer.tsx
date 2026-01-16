@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import footerData from "@/content/en/footer.json";
+import footerDataRaw from "@/content/en/footer.json";
 
 interface FooterLink {
   label: string;
@@ -14,6 +14,13 @@ interface FooterSection {
   title: string;
   links: FooterLink[];
 }
+
+interface FooterData {
+  social: FooterLink[];
+  sections: FooterSection[];
+}
+
+const footerData = footerDataRaw as FooterData;
 
 // Static 3-dot icon matching navigation logo (without animation)
 function StaticCircles() {
@@ -172,7 +179,7 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             {footerData.social && footerData.social.length > 0 && (
               <div className="flex flex-wrap gap-4 sm:gap-6 lg:gap-8">
-                {footerData.social.map((link) => (
+                {footerData.social.map((link: FooterLink) => (
                   <a
                     key={link.href}
                     href={link.href}
