@@ -11,7 +11,6 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
-  swcMinify: true,
   // Optimize compiler
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? {
