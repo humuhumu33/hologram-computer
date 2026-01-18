@@ -130,7 +130,7 @@ export default function ContactPage() {
               <div>
                 <h4 className="font-medium">{t('info.email')}</h4>
                 <a
-                  href="mailto:contact@uor.foundation"
+                  href="mailto:contact@gethologram.ai"
                   className="text-sm text-muted-foreground hover:text-cyan transition-colors"
                 >
                   {t('info.emailAddress')}
