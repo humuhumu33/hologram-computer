@@ -122,11 +122,9 @@ export default function ContactPage() {
         </Card>
 
         <div className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>{t('info.title')}</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
+          <div>
+            <h3 className="text-xl font-semibold mb-4">{t('info.title')}</h3>
+            <div className="space-y-4">
               <div>
                 <h4 className="font-medium">{t('info.email')}</h4>
                 <a
@@ -158,8 +156,8 @@ export default function ContactPage() {
                   {t('info.github')} →
                 </a>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
     </Section>
