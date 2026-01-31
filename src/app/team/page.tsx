@@ -102,7 +102,7 @@ export default function TeamPage() {
               </p>
               
               <p className="text-lg sm:text-xl leading-relaxed text-white font-medium">
-                Hologram unifies compute, memory and networking into one software defined geometric substrate. A single programmable fabric that runs across your devices from edge to cloud on the hardware you already have.
+                Hologram aims to unify compute, memory and networking into one virtual data infrastructure. A single programmable substrate that runs across your devices from edge to cloud on the hardware you already have.
               </p>
               
               <p className="text-lg sm:text-xl leading-relaxed text-white font-medium">

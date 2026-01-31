@@ -24,58 +24,58 @@ export function CanonicalizationOptimizationViz() {
               12 operations
             </text>
 
-            {/* Operations chain - showing redundancy, centered */}
+            {/* Operations chain - showing redundancy, centered (box width +20% +15% for margins) */}
             <g transform="translate(500, 85)">
               {/* Row 1: Operations 1-6 */}
-              <rect x="-280" y="-28" width="75" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
+              <rect x="-294.25" y="-28" width="103.5" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
               <text x="-242.5" y="5" textAnchor="middle" fill="#9ca3af" fontSize="16" fontFamily="monospace">add()</text>
-              <line x1="-200" y1="0" x2="-175" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
+              <line x1="-190.75" y1="0" x2="-184.25" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
               
               {/* Redundant operation */}
-              <rect x="-170" y="-28" width="75" height="56" rx="2" fill="#1f2937" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="2,2" opacity="0.5" />
+              <rect x="-184.25" y="-28" width="103.5" height="56" rx="2" fill="#1f2937" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="2,2" opacity="0.5" />
               <text x="-132.5" y="5" textAnchor="middle" fill="#9ca3af" fontSize="16" fontFamily="monospace">+0</text>
-              <line x1="-90" y1="0" x2="-65" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
+              <line x1="-80.75" y1="0" x2="-74.25" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
               
-              <rect x="-60" y="-28" width="75" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
+              <rect x="-74.25" y="-28" width="103.5" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
               <text x="-22.5" y="5" textAnchor="middle" fill="#9ca3af" fontSize="16" fontFamily="monospace">mul()</text>
-              <line x1="20" y1="0" x2="45" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
+              <line x1="29.25" y1="0" x2="35.75" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
               
               {/* Redundant operation */}
-              <rect x="50" y="-28" width="75" height="56" rx="2" fill="#1f2937" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="2,2" opacity="0.5" />
+              <rect x="35.75" y="-28" width="103.5" height="56" rx="2" fill="#1f2937" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="2,2" opacity="0.5" />
               <text x="87.5" y="5" textAnchor="middle" fill="#9ca3af" fontSize="16" fontFamily="monospace">*1</text>
-              <line x1="130" y1="0" x2="155" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
+              <line x1="139.25" y1="0" x2="145.75" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
               
-              <rect x="160" y="-28" width="75" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
+              <rect x="145.75" y="-28" width="103.5" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
               <text x="197.5" y="5" textAnchor="middle" fill="#9ca3af" fontSize="16" fontFamily="monospace">tanh()</text>
-              <line x1="240" y1="0" x2="265" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
+              <line x1="249.25" y1="0" x2="255.75" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
               
-              <rect x="270" y="-28" width="75" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
+              <rect x="255.75" y="-28" width="103.5" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
               <text x="307.5" y="5" textAnchor="middle" fill="#9ca3af" fontSize="16" fontFamily="monospace">relu()</text>
             </g>
 
             {/* Row 2: Operations 7-12 */}
             <g transform="translate(500, 165)">
-              <rect x="-280" y="-28" width="75" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
+              <rect x="-294.25" y="-28" width="103.5" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
               <text x="-242.5" y="5" textAnchor="middle" fill="#9ca3af" fontSize="16" fontFamily="monospace">sigmoid()</text>
-              <line x1="-200" y1="0" x2="-175" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
+              <line x1="-190.75" y1="0" x2="-184.25" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
               
-              <rect x="-170" y="-28" width="75" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
+              <rect x="-184.25" y="-28" width="103.5" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
               <text x="-132.5" y="5" textAnchor="middle" fill="#9ca3af" fontSize="16" fontFamily="monospace">norm()</text>
-              <line x1="-90" y1="0" x2="-65" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
+              <line x1="-80.75" y1="0" x2="-74.25" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
               
-              <rect x="-60" y="-28" width="75" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
+              <rect x="-74.25" y="-28" width="103.5" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
               <text x="-22.5" y="5" textAnchor="middle" fill="#9ca3af" fontSize="16" fontFamily="monospace">scale()</text>
-              <line x1="20" y1="0" x2="45" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
+              <line x1="29.25" y1="0" x2="35.75" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
               
-              <rect x="50" y="-28" width="75" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
+              <rect x="35.75" y="-28" width="103.5" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
               <text x="87.5" y="5" textAnchor="middle" fill="#9ca3af" fontSize="16" fontFamily="monospace">add()</text>
-              <line x1="130" y1="0" x2="155" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
+              <line x1="139.25" y1="0" x2="145.75" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
               
-              <rect x="160" y="-28" width="75" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
+              <rect x="145.75" y="-28" width="103.5" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
               <text x="197.5" y="5" textAnchor="middle" fill="#9ca3af" fontSize="16" fontFamily="monospace">mul()</text>
-              <line x1="240" y1="0" x2="265" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
+              <line x1="249.25" y1="0" x2="255.75" y2="0" stroke="#6b7280" strokeWidth="1.5" opacity="0.4" />
               
-              <rect x="270" y="-28" width="75" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
+              <rect x="255.75" y="-28" width="103.5" height="56" rx="2" fill="#1f2937" stroke="#4b5563" strokeWidth="1.5" />
               <text x="307.5" y="5" textAnchor="middle" fill="#9ca3af" fontSize="16" fontFamily="monospace">relu()</text>
             </g>
           </g>
@@ -89,23 +89,23 @@ export function CanonicalizationOptimizationViz() {
               3 operations
             </text>
 
-            {/* Optimized operations - fused and in a row, centered */}
+            {/* Optimized operations - fused and in a row, centered (box width -10%, slightly increased gap) */}
             <g transform="translate(500, 335)">
               {/* Fused operation 1 */}
-              <rect x="-290" y="-30" width="200" height="60" rx="2" fill="#111827" stroke="#10b981" strokeWidth="2.5" />
+              <rect x="-314" y="-30" width="248" height="60" rx="2" fill="#111827" stroke="#10b981" strokeWidth="2.5" />
               <text x="-190" y="0" textAnchor="middle" dominantBaseline="middle" fill="#10b981" fontSize="16" fontFamily="monospace" fontWeight="600">tanh + relu + sigmoid</text>
               
-              <line x1="-85" y1="0" x2="-60" y2="0" stroke="#10b981" strokeWidth="2.5" opacity="0.6" />
+              <line x1="-66" y1="0" x2="-44" y2="0" stroke="#10b981" strokeWidth="2.5" opacity="0.6" />
               
               {/* Fused operation 2 */}
-              <rect x="-50" y="-30" width="160" height="60" rx="2" fill="#111827" stroke="#10b981" strokeWidth="2.5" />
-              <text x="30" y="0" textAnchor="middle" dominantBaseline="middle" fill="#10b981" fontSize="16" fontFamily="monospace" fontWeight="600">norm + scale</text>
+              <rect x="-44" y="-30" width="199" height="60" rx="2" fill="#111827" stroke="#10b981" strokeWidth="2.5" />
+              <text x="55.5" y="0" textAnchor="middle" dominantBaseline="middle" fill="#10b981" fontSize="16" fontFamily="monospace" fontWeight="600">norm + scale</text>
               
-              <line x1="115" y1="0" x2="140" y2="0" stroke="#10b981" strokeWidth="2.5" opacity="0.6" />
+              <line x1="155" y1="0" x2="177" y2="0" stroke="#10b981" strokeWidth="2.5" opacity="0.6" />
               
               {/* Fused operation 3 */}
-              <rect x="145" y="-30" width="200" height="60" rx="2" fill="#111827" stroke="#10b981" strokeWidth="2.5" />
-              <text x="245" y="0" textAnchor="middle" dominantBaseline="middle" fill="#10b981" fontSize="16" fontFamily="monospace" fontWeight="600">add + mul + relu</text>
+              <rect x="177" y="-30" width="248" height="60" rx="2" fill="#111827" stroke="#10b981" strokeWidth="2.5" />
+              <text x="301" y="0" textAnchor="middle" dominantBaseline="middle" fill="#10b981" fontSize="16" fontFamily="monospace" fontWeight="600">add + mul + relu</text>
             </g>
             
             {/* (fused) label - centered below operations, aligned with top graphic */}

@@ -161,7 +161,7 @@ exec.run(circuit)`,
                     1. Compile once
                   </span>
                 </div>
-                <div className="text-base text-muted-foreground">All optimization at build time</div>
+                <div className="text-base text-muted-foreground">All optimization at build time.</div>
               </Link>
               <Link href="#run-anywhere" className="text-center hover:opacity-80 transition-opacity">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-cyan/10 border border-cyan/20 mx-auto mb-4">
@@ -180,7 +180,7 @@ exec.run(circuit)`,
                     2. Run anywhere
                   </span>
                 </div>
-                <div className="text-base text-muted-foreground">CPU, GPU, or WASM</div>
+                <div className="text-base text-muted-foreground">CPU, GPU, WASM, etc.</div>
               </Link>
               <Link href="#execute-constant-time" className="text-center hover:opacity-80 transition-opacity">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-cyan/10 border border-cyan/20 mx-auto mb-4">
@@ -196,10 +196,10 @@ exec.run(circuit)`,
                       backgroundClip: 'text',
                     }}
                   >
-                    3. Execute in constant time
+                    3. Execute with O(1) lookup
                   </span>
                 </div>
-                <div className="text-base text-muted-foreground"><Math inline>O(1)</Math> per element</div>
+                <div className="text-base text-muted-foreground">Single-pass runtime execution.</div>
               </Link>
             </div>
           </div>
@@ -293,16 +293,16 @@ exec.run(circuit)`,
               <div className="mt-6">
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="rounded-lg border border-border/10 bg-surface-dark/20 p-4">
-                    <div className="text-base font-semibold text-foreground mb-2">No Runtime Phase</div>
-                    <div className="text-sm text-muted-foreground">Circuits are fully compiled at build time. At runtime there is nothing to load, compile, interpret, or warm up—execution starts immediately.</div>
+                    <div className="text-base font-semibold text-foreground mb-2">Mathematically Fast Runtime</div>
+                    <div className="text-sm text-muted-foreground">Circuits are fully compiled at build time. At runtime there is minimal work to load, interpret, or warm up execution starts quickly and remains highly optimized.</div>
                   </div>
                   <div className="rounded-lg border border-border/10 bg-surface-dark/20 p-4">
                     <div className="text-base font-semibold text-foreground mb-2">Single-Binary Deployment</div>
                     <div className="text-sm text-muted-foreground">Circuits ship with your application as part of the executable. No sidecar files, no runtime dependencies, no environment-specific configuration.</div>
                   </div>
                   <div className="rounded-lg border border-border/10 bg-surface-dark/20 p-4">
-                    <div className="text-base font-semibold text-foreground mb-2">Predictable Tradeoff</div>
-                    <div className="text-sm text-muted-foreground">A small, fixed binary size increase (100–500 KB) replaces an entire class of runtime complexity, improving startup time, reliability, and operational simplicity.</div>
+                    <div className="text-base font-semibold text-foreground mb-2">Predictable Backend Plan</div>
+                    <div className="text-sm text-muted-foreground">Execution plan headers grow linearly with computation complexity, reducing runtime complexity and improving startup time and reliability.</div>
                   </div>
                 </div>
               </div>
@@ -661,21 +661,21 @@ exec.run(circuit)`,
                   <Code2 className="h-6 w-6 text-cyan" />
                 </div>
                 <div className="font-semibold text-foreground mb-2">Compile once</div>
-                <div className="text-sm text-muted-foreground">All optimization at build time</div>
+                <div className="text-sm text-muted-foreground">All optimization at build time.</div>
               </div>
               <div className="text-center">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-cyan/10 border border-cyan/20 mx-auto mb-4">
                   <Server className="h-6 w-6 text-cyan" />
                 </div>
                 <div className="font-semibold text-foreground mb-2">Run anywhere</div>
-                <div className="text-sm text-muted-foreground">CPU, GPU, or WASM</div>
+                <div className="text-sm text-muted-foreground">CPU, GPU, WASM, etc.</div>
               </div>
               <div className="text-center">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-cyan/10 border border-cyan/20 mx-auto mb-4">
                   <Zap className="h-6 w-6 text-cyan" />
                 </div>
-                <div className="font-semibold text-foreground mb-2">Execute in constant time</div>
-                <div className="text-sm text-muted-foreground"><Math inline>O(1)</Math> per element</div>
+                <div className="font-semibold text-foreground mb-2">Execute with O(1) lookup</div>
+                <div className="text-sm text-muted-foreground">Single-pass runtime execution.</div>
               </div>
             </div>
           </div>
