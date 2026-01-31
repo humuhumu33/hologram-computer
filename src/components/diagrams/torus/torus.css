@@ -1,3 +1,15 @@
+/* Torus fade-in animation - must be at top level for CSS optimizer */
+@keyframes torus-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* Torus Color Variables */
 :root {
   /* Background colors - transparent for dark theme */
@@ -86,17 +98,6 @@
 
   .torus-wireframe {
     animation: torus-fade-in 1.5s ease-out;
-  }
-
-  @keyframes torus-fade-in {
-    0% {
-      opacity: 0;
-      transform: scale(0.8);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
   }
 }
 
