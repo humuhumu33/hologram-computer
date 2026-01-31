@@ -51,7 +51,7 @@ function getPerformanceAnswers(data: BenchmarkData | null): (string | null)[] {
       ? `Canonicalization: ${canonicalizeStr} (compile-time, one-time). Execution: ~${execPerElementStr} per element for fused operations. Overhead: <200ns per operation.`
       : null,
     execPerElementStr
-      ? `For a chain of 4 operations: Traditional: ${traditional4Str} (sequential execution). Hologram: ~${execPerElementStr} per element (fused, single lookup). Speedup: ~${speedup != null ? Math.round(speedup) + "x" : "10x"} for typical operation chains.`
+      ? `For a chain of 4 operations: Traditional: ${traditional4Str} (sequential execution). Hologram: ~${execPerElementStr} per element (fused, single lookup). Speedup: ~${speedup != null ? globalThis.Math.round(speedup) + "x" : "10x"} for typical operation chains.`
       : null,
     "Minimal: Backend initialization: ~1-5µs. Circuit loading: ~10-100µs (one-time, file I/O). No JIT compilation.",
     "Small: Class maps: 96 bytes each. ISA programs: ~1 KB each. Typical overhead: 100-500 KB per application.",
