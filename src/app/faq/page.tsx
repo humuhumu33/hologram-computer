@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Section, SectionHeader } from "@/components/section";
 import { Card, CardContent } from "@/components/ui/card";
 import { Math } from "@/components/math";
+import { BenchmarkData, formatNanoseconds } from "@/lib/benchmark-utils";
 import {
   HelpCircle,
   Code2,
@@ -16,7 +18,48 @@ import {
   Rocket,
   FileQuestion,
   CheckCircle2,
+  ExternalLink,
 } from "lucide-react";
+
+const BENCHMARK_API_URL = "https://gethologram.ai/benches/current.json";
+
+/** Build Performance FAQ answers from latest benchmark data (same source as /benchmarks). */
+function getPerformanceAnswers(data: BenchmarkData | null): (string | null)[] {
+  if (!data?.benchmarks) return [];
+  const b = data.benchmarks;
+  const canonicalize = b["canonicalize_simple_add_circuit"];
+  const range4 = b["canonicalize_range_operations/4"];
+  const range8 = b["canonicalize_range_operations/8"];
+  const execPerElementUs =
+    range4 && range8
+      ? (range4.mean_ns + range8.mean_ns) / 2 / 1000
+      : range4
+        ? range4.mean_ns / 1000
+        : null;
+  const execPerElementStr =
+    execPerElementUs != null ? `~${execPerElementUs.toFixed(2)}µs` : null;
+  const canonicalizeStr = canonicalize ? formatNanoseconds(canonicalize.mean_ns) : null;
+  const traditionalPerOpUs = 0.5;
+  const traditional4Str = "4 × 0.5µs = 2.0µs";
+  const speedup =
+    execPerElementUs != null && execPerElementUs > 0
+      ? (traditionalPerOpUs * 4) / execPerElementUs
+      : null;
+
+  return [
+    canonicalizeStr && execPerElementStr
+      ? `Canonicalization: ${canonicalizeStr} (compile-time, one-time). Execution: ~${execPerElementStr} per element for fused operations. Overhead: <200ns per operation.`
+      : null,
+    execPerElementStr
+      ? `For a chain of 4 operations: Traditional: ${traditional4Str} (sequential execution). Hologram: ~${execPerElementStr} per element (fused, single lookup). Speedup: ~${speedup != null ? Math.round(speedup) + "x" : "10x"} for typical operation chains.`
+      : null,
+    "Minimal: Backend initialization: ~1-5µs. Circuit loading: ~10-100µs (one-time, file I/O). No JIT compilation.",
+    "Small: Class maps: 96 bytes each. ISA programs: ~1 KB each. Typical overhead: 100-500 KB per application.",
+    "No. Execution is O(1) per element. Processing 1M elements takes 1M × (constant time), which is linear in input size but constant per element.",
+    "Performance is stable because the circuit is fixed. There are no \"worst cases\"—the circuit topology determines execution time.",
+    "Execution is O(1) per element. Processing 1M elements is 1M × (constant time). Scales linearly with input size, constant per element.",
+  ];
+}
 
 const faqSections = [
   {
@@ -80,7 +123,7 @@ const faqSections = [
     questions: [
       {
         q: "How do I install Hologram?",
-        a: "Add it as a dependency to your project: Rust: hologram = \"0.2.0\" in Cargo.toml, python: pip install hologram, typescript: npm install hologram.",
+        a: "Add it as a dependency to your project.",
       },
       {
         q: "Do I need to install anything on the server?",
@@ -108,7 +151,7 @@ const faqSections = [
       },
       {
         q: "Does it require root/admin privileges?",
-        a: "No. Hologram runs with your application's permissions. No special privileges needed.",
+        a: "No. For local-only Hologram, no special permissions needed.",
       },
     ],
   },
@@ -127,7 +170,7 @@ const faqSections = [
       },
       {
         q: "What's the startup overhead?",
-        a: "Minimal: Backend initialization: ~1-5µs. Circuit loading: ~10-100µs (one-time, file I/O). No JIT compilation or warmup.",
+        a: "Minimal: Backend initialization: ~1-5µs. Circuit loading: ~10-100µs (one-time, file I/O). No JIT compilation.",
       },
       {
         q: "What's the memory overhead?",
@@ -341,6 +384,28 @@ const faqSections = [
 
 export default function FAQPage() {
   const [selectedSection, setSelectedSection] = useState<string>(faqSections[0].id);
+  const [benchmarkData, setBenchmarkData] = useState<BenchmarkData | null>(null);
+
+  useEffect(() => {
+    async function fetchBenchmarks() {
+      try {
+        const response = await fetch(BENCHMARK_API_URL, { cache: "no-store" });
+        if (!response.ok) throw new Error(`Failed to fetch: ${response.status}`);
+        const json = await response.json();
+        setBenchmarkData(json as BenchmarkData);
+      } catch {
+        try {
+          const fallback = await import("@/public/benches/current.json");
+          setBenchmarkData(fallback.default as BenchmarkData);
+        } catch {
+          // keep null, FAQ will use static answers
+        }
+      }
+    }
+    fetchBenchmarks();
+  }, []);
+
+  const performanceAnswers = getPerformanceAnswers(benchmarkData);
 
   return (
     <>
@@ -387,34 +452,52 @@ export default function FAQPage() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           {faqSections.map((section) => {
             if (selectedSection !== section.id) return null;
-            
+            const isPerformance = section.id === "performance";
+            const answers = isPerformance ? performanceAnswers : null;
+
             return (
               <div key={section.id} className="space-y-10">
                 <div className="mb-8 pb-4 border-b border-border/30">
                   <h2 className="text-2xl font-semibold text-foreground tracking-tight">
                     {section.title}
                   </h2>
+                  {isPerformance && (
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      Numbers from latest benchmark run.{" "}
+                      <Link
+                        href="/benchmarks"
+                        className="text-cyan hover:underline inline-flex items-center gap-1"
+                      >
+                        See Benchmark page
+                        <ExternalLink className="h-3.5 w-3.5" />
+                      </Link>
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-10">
-                  {section.questions.map((item, index) => (
-                    <div
-                      key={index}
-                      className="group relative"
-                    >
-                      <div className="absolute -left-4 top-0 bottom-0 w-0.5 bg-cyan/0 group-hover:bg-cyan/30 transition-colors duration-200"></div>
-                      <div className="pl-6 space-y-4">
-                        <h3 className="text-lg font-semibold text-foreground leading-snug tracking-tight">
-                          {item.q}
-                        </h3>
-                        <div className="pl-4 border-l border-border/20">
-                          <p className="text-lg leading-relaxed text-muted-foreground">
-                            {item.a}
-                          </p>
+                  {section.questions.map((item, index) => {
+                    const answer =
+                      answers && answers[index] != null ? answers[index]! : item.a;
+                    return (
+                      <div
+                        key={index}
+                        className="group relative"
+                      >
+                        <div className="absolute -left-4 top-0 bottom-0 w-0.5 bg-cyan/0 group-hover:bg-cyan/30 transition-colors duration-200"></div>
+                        <div className="pl-6 space-y-4">
+                          <h3 className="text-lg font-semibold text-foreground leading-snug tracking-tight">
+                            {item.q}
+                          </h3>
+                          <div className="pl-4 border-l border-border/20">
+                            <p className="text-lg leading-relaxed text-muted-foreground">
+                              {answer}
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             );

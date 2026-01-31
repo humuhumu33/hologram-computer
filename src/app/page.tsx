@@ -47,7 +47,7 @@ export default function Home() {
     <div className="relative" style={{ contentVisibility: 'auto' }}>
       <TypeformModal open={isTypeformOpen} onOpenChange={setIsTypeformOpen} />
       {/* Hero Section */}
-      <section className="relative z-10 overflow-hidden pt-8 pb-16 sm:pt-8 sm:pb-16 lg:pt-16 lg:pb-24 hero-section">
+      <section className="relative z-10 overflow-hidden py-12 sm:py-16 lg:py-24 hero-section">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12 relative z-10">
           <div className="flex flex-col items-center gap-4 sm:gap-6 lg:gap-12 lg:flex-row lg:justify-between lg:items-start">
             <div className="flex-1 text-center lg:text-left lg:max-w-2xl space-y-6 sm:space-y-6 lg:space-y-10 pt-2 lg:pt-3">
@@ -214,7 +214,7 @@ export default function Home() {
       </section>
 
       {/* What Is Hologram Section */}
-      <section id="what-is-hologram" className="relative z-10 py-10 sm:py-12 lg:py-18">
+      <section id="what-is-hologram" className="relative z-10 py-12 sm:py-16 lg:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-3 sm:mb-4">
@@ -258,26 +258,18 @@ export default function Home() {
               <div className="grid md:grid-cols-2 gap-4 sm:gap-6 mt-6 sm:mt-8">
                 <div className="rounded-lg border-2 border-border/60 bg-[hsl(260_45%_6%)]/90 p-4 sm:p-6 hover:border-border/80 hover:bg-[hsl(260_45%_6%)]/95 shadow-lg shadow-black/10 transition-all duration-200">
                   <div className="space-y-3 sm:space-y-4">
-                    <h3 className="text-lg sm:text-xl lg:text-[22px] font-semibold mb-2 flex items-center gap-2">
+                    <h3 className="text-lg sm:text-xl lg:text-[22px] font-semibold mb-2 flex items-center gap-2 text-foreground">
                       <Atom className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
-                      <span
-                        className="gradient-text-animated"
-                        style={{
-                          backgroundImage: 'linear-gradient(97deg, #3388EE, #8844CC 42%, #CC44AA 74%, #EE4433)',
-                          WebkitBackgroundClip: 'text',
-                          WebkitTextFillColor: 'transparent',
-                          backgroundClip: 'text',
-                        }}
-                      >
+                      <span>
                         Mathematical Breakthrough (ATLAS)
                       </span>
                     </h3>
                     <p className="mb-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                      Universal, lossless geometric computation framework derived from information's natural mathematical structure.
+                      Universal lossless encoder that enables canonical representation of arbitrary byte-level data system on a finite geometric representation space (torus).
                     </p>
                     <Link
                       href="/research"
-                      className="font-medium text-foreground hover:text-foreground/80 transition-colors inline-flex items-center gap-1 min-h-[44px] touch-manipulation"
+                      className="text-sm sm:text-base font-medium text-muted-foreground hover:text-muted-foreground/90 transition-colors inline-flex items-center gap-1 min-h-[44px] touch-manipulation"
                     >
                       Learn more
                       <ArrowRight className="h-4 w-4" />
@@ -287,17 +279,9 @@ export default function Home() {
 
                 <div className="rounded-lg border-2 border-border/60 bg-[hsl(260_45%_6%)]/90 p-4 sm:p-6 hover:border-border/80 hover:bg-[hsl(260_45%_6%)]/95 shadow-lg shadow-black/10 transition-all duration-200">
                   <div className="space-y-3 sm:space-y-4">
-                    <h3 className="text-lg sm:text-xl lg:text-[22px] font-semibold mb-2 flex items-center gap-2">
+                    <h3 className="text-lg sm:text-xl lg:text-[22px] font-semibold mb-2 flex items-center gap-2 text-foreground">
                       <Zap className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
-                      <span
-                        className="gradient-text-animated"
-                        style={{
-                          backgroundImage: 'linear-gradient(97deg, #3388EE, #8844CC 42%, #CC44AA 74%, #EE4433)',
-                          WebkitBackgroundClip: 'text',
-                          WebkitTextFillColor: 'transparent',
-                          backgroundClip: 'text',
-                        }}
-                      >
+                      <span>
                         Virtual High-Performance Hypervisor
                       </span>
                     </h3>
@@ -306,7 +290,7 @@ export default function Home() {
                     </p>
                     <Link
                       href="/how"
-                      className="font-medium text-foreground hover:text-foreground/80 active:text-foreground/70 transition-colors inline-flex items-center gap-1 min-h-[44px] touch-manipulation"
+                      className="text-sm sm:text-base font-medium text-muted-foreground hover:text-muted-foreground/90 active:text-muted-foreground/80 transition-colors inline-flex items-center gap-1 min-h-[44px] touch-manipulation"
                     >
                       Learn more
                       <ArrowRight className="h-4 w-4" />
@@ -318,11 +302,8 @@ export default function Home() {
 
           </div>
 
-          {/* How it performs Section */}
-          <HowItPerforms />
-
           {/* Why it matters Section */}
-          <div className="mt-2 sm:mt-4 lg:mt-6 pt-4 sm:pt-6 lg:pt-8 border-t border-border/10">
+          <div className="mt-10 sm:mt-12 lg:mt-14 pt-12 sm:pt-14 lg:pt-20 pb-12 sm:pb-14 lg:pb-20 border-t border-border/10">
             <div className="text-center mb-10">
               <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
                 <span
@@ -351,10 +332,10 @@ export default function Home() {
                   <h3 className="text-lg sm:text-xl lg:text-[22px] font-semibold text-foreground">Lightning-fast performance</h3>
                 </div>
                 <div className="flex-1 flex flex-col">
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-2 sm:mb-3">
-                    Run high performance workloads locally using Hologram's virtual compute layer.
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-2 sm:mb-3">
+                    Run high performance workloads locally using our virtual compute layer.
                   </p>
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                     Build, iterate and ship faster today.
                   </p>
                 </div>
@@ -371,10 +352,10 @@ export default function Home() {
                   </h3>
                 </div>
                 <div className="flex-1 flex flex-col">
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-2 sm:mb-3">
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-2 sm:mb-3">
                     Unlock high-performance compute on your existing hardware.
                   </p>
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                     No expensive GPUs or cloud fees.
                   </p>
                 </div>
@@ -391,21 +372,24 @@ export default function Home() {
                   </h3>
                 </div>
                 <div className="flex-1 flex flex-col">
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-2 sm:mb-3">
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-2 sm:mb-3">
                     Integrates seamlessly with existing workflows and frameworks.
                   </p>
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                     No hardware or code changes.
                   </p>
                 </div>
               </div>
             </div>
           </div>
+
+          {/* How it performs Section */}
+          <HowItPerforms />
         </div>
       </section>
 
       {/* How it works Section */}
-      <section className="relative z-10 py-12 sm:py-16 lg:py-24 border-t border-border/10">
+      <section className="relative z-10 pt-0 pb-6 sm:pt-2 sm:pb-8 lg:pt-4 lg:pb-12 border-t border-border/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10 lg:mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-3 sm:mb-4">
@@ -433,18 +417,8 @@ export default function Home() {
                   <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg border-2 border-border/60 bg-[hsl(260_45%_6%)]/90 flex-shrink-0">
                     <Code2 className="h-5 w-5 sm:h-6 sm:w-6 text-white" strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-semibold">
-                    <span
-                      className="gradient-text-animated"
-                      style={{
-                        backgroundImage: 'linear-gradient(97deg, #3388EE, #8844CC 42%, #CC44AA 74%, #EE4433)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text',
-                      }}
-                    >
-                      1. Compile Once
-                    </span>
+                  <h3 className="text-xl sm:text-2xl font-semibold text-foreground">
+                    1. Compile Once
                   </h3>
                 </div>
                 
@@ -464,18 +438,8 @@ export default function Home() {
                   <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg border-2 border-border/60 bg-[hsl(260_45%_6%)]/90 flex-shrink-0">
                     <Globe className="h-5 w-5 sm:h-6 sm:w-6 text-white" strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-semibold">
-                    <span
-                      className="gradient-text-animated"
-                      style={{
-                        backgroundImage: 'linear-gradient(97deg, #3388EE, #8844CC 42%, #CC44AA 74%, #EE4433)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text',
-                      }}
-                    >
-                      2. Run Anywhere
-                    </span>
+                  <h3 className="text-xl sm:text-2xl font-semibold text-foreground">
+                    2. Run Anywhere
                   </h3>
                 </div>
                 
@@ -546,7 +510,7 @@ export default function Home() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="relative z-10 pt-4 pb-10 sm:pt-6 sm:pb-12 lg:pt-8 lg:pb-20">
+      <section className="relative z-10 py-12 sm:py-16 lg:py-24">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-xl sm:rounded-2xl border-2 border-purple-500/50 bg-[hsl(260_45%_10%)]/98 backdrop-blur-sm pt-8 pb-6 sm:pt-12 sm:pb-8 lg:pt-16 lg:pb-12 px-6 sm:px-8 lg:px-12 text-center relative overflow-hidden shadow-xl shadow-black/30 hover:border-purple/40 hover:shadow-2xl hover:shadow-purple/20 transition-all">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 mt-2 sm:mt-4">

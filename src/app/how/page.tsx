@@ -430,7 +430,7 @@ exec.run(circuit)`,
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-cyan">AI Framework Integration</h3>
               <p className="text-base leading-relaxed text-foreground">
-                Hologram uses ONNX as the boundary between training and production. Train in PyTorch or TensorFlow, export to ONNX, then compile to a fixed circuit optimized for inference. Delivering instant AI inference on any device.
+                Hologram works with open AI formats like ONNX and GGUF. Train in PyTorch or TensorFlow, export to ONNX, then compile into a fixed circuit optimized for inference, delivering near-instant AI on any device.
               </p>
 
               {/* Visual Flow */}
@@ -474,7 +474,7 @@ exec.run(circuit)`,
                     <h4 className="text-lg font-semibold text-foreground">Compile & Deploy</h4>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Run instant AI inference on any device
+                    Run near-instant AI inference on any device
                   </p>
                 </div>
               </div>
